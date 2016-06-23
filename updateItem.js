@@ -5,10 +5,10 @@ var fs = require('fs');
 update.post('/updateItem', function (req, res) {
 
   fs.readFile(__dirname + '/commoditys.json', function (err, data) {
-    if(data === ""){
+    if (data === "") {
       data += "[]";
     }
-    
+
     var dataArray = JSON.parse(data);
     var temp = false;
     var newCommodity = {

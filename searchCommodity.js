@@ -4,10 +4,10 @@ var fs = require("fs");
 
 search.put('/searchCommodity/:id', function (req, res) {
   fs.readFile(__dirname + '/commoditys.json', 'utf8', function (err, data) {
-    if(data === ""){
+    if (data === "") {
       data += "[]";
     }
-    
+
     var dataArray = JSON.parse(data);
     var searchItem;
     var id = parseInt(req.params.id);

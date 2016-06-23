@@ -5,7 +5,7 @@ var fs = require("fs");
 add.post('/addCommodity', function (req, res) {
 
   fs.readFile(__dirname + "/" + "commoditys.json", 'utf8', function (err, data) {
-    if(data === ""){
+    if (data === "") {
       data += "[]";
     }
     var dataArray = JSON.parse(data);
@@ -17,9 +17,7 @@ add.post('/addCommodity', function (req, res) {
       "unit": req.body.unit,
       "price": req.body.price
     };
-
-    console.log(req.body.barcode+req.body.name+req.body.unit+ req.body.price);
-
+    
     if (typeof(req.body.barcode) != "string"
       || typeof(req.body.name) != "string"
       || typeof(req.body.unit) != "string"
