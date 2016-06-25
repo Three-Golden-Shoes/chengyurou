@@ -28,14 +28,14 @@ update.post('/updateItem', function (req, res) {
       }
     });
 
-    if (temp == false) {
-      res.status(401).end();
-    } else {
-      res.status(200).json(dataArray);
-      fs.writeFile('commoditys.json', JSON.stringify(dataArray));
-    }
 
   });
+  if (temp == false) {
+    res.status(401).end();
+  } else {
+    fs.writeFile('commoditys.json', JSON.stringify(dataArray));
+    res.status(200).json(dataArray);
+  }
 });
 
 module.exports = update;

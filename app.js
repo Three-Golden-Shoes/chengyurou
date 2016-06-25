@@ -14,7 +14,7 @@ app.use('/', require('./searchCommodity'));
 app.use('/', require('./deleteCommodity'));
 app.use('/', require('./updateItem'));
 
-fs.stat("commoditys.json", function (err, stat) { //通过异步模式获取文件信息
+fs.stat("commoditys.json", function (err, stat) { 
   if ((stat && stat.isFile())) {
     console.log("json文件存在！");
   } else {

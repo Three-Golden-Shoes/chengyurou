@@ -3,12 +3,11 @@ var del = express();
 var fs = require('fs');
 
 del.delete('/deleteCommodity/:id', function (req, res) {
-
   fs.readFile(__dirname + "/commoditys.json", 'utf8', function (err, data) {
-    if(data === ""){
+    if (data === "") {
       data += "[]";
     }
-    
+
     var dataArray = JSON.parse(data);
     var id = parseInt(req.params.id);
     var temp = false;
@@ -28,7 +27,6 @@ del.delete('/deleteCommodity/:id', function (req, res) {
       res.status(204).json(dataArray);
       fs.writeFile('commoditys.json', JSON.stringify(dataArray));
     }
-
   });
 });
 

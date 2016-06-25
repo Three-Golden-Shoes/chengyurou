@@ -9,21 +9,21 @@ search.put('/searchCommodity/:id', function (req, res) {
     }
 
     var dataArray = JSON.parse(data);
-    var searchItem;
+    var existedItem;
     var id = parseInt(req.params.id);
 
     dataArray.forEach(function (item) {
       if (item != null) {
         if (item.id === id) {
-          searchItem = item;
+          existedItem = item;
         }
       }
     });
 
-    if (searchItem === undefined) {
+    if (existedItem === undefined) {
       res.status(404);
     } else {
-      res.status(201).json(searchItem);
+      res.status(201).json(existedItem);
     }
 
   });
